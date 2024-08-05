@@ -1,5 +1,4 @@
-# Tool definition
-#
+# Tool definitions
 CC ?= gcc
 CXX ?= g++
 
@@ -11,8 +10,8 @@ NAME = app.elf
 
 # Search path for header files
 CFLAGS += -I$(SRC_DIR)/average
-#
-# # List module source files
+
+# List module source files
 CSOURCES = $(SRC_DIR)/main.c
 CSOURCES += $(wildcard $(SRC_DIR)/average/*.c)
 
@@ -44,6 +43,12 @@ $(NAME): $(COBJECTS)
 clean:
 	rm -f $(COBJECTS)
 
-
-
-
+# Run tests
+.PHONY: test
+test:
+	make -C $(TEST_DIR)
+	
+# Clean tests
+.PHONY: test_clean
+test_clean:
+	make -C $(TEST_DIR) clean
