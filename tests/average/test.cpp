@@ -19,6 +19,18 @@ TEST_GROUP(average_test_group){
 
 };
 
+
+
+
+// Create test group for emg software
+TEST_GROUP(emg_test_group)
+{
+
+
+
+};
+
+
 // Test the average function
 TEST(average_test_group, simple_test){
 	float arr[] = {-1.0, 0.0, 1.0, 2.0, 3.0};
@@ -35,7 +47,16 @@ TEST(average_test_group, null_test){
 }
 
 
+// test addition function
+TEST(average_test_group, add_test)
+{
+	int a = 3;
+	int b = 4;
+	int int_sum = a - b;
+	int ext_sum = add(a, b);
+	CHECK_EQUAL(ext_sum, int_sum);
 
+}
 
 
 
