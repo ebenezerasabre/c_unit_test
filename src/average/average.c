@@ -15,8 +15,10 @@ int add(int a, int b){
 
 
 void muscle_activator(int imu[9],  bool msl_act){
-
-
+	int accel_val_x = (imu[0] < 0) ? (imu[0] * -1) : imu[0];
+	int accel_val_x = (imu[0] < 0) ? (imu[0] * -1) : imu[0];
+	int accel_val_x = (imu[0] < 0) ? (imu[0] * -1) : imu[0];
+	
 }
 
 
