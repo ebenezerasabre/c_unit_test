@@ -1,4 +1,6 @@
 #include "average.h"
+#include <stdbool.h>
+
 
 float average(float arr[], unsigned int size){
 	float total = 0;
@@ -14,11 +16,15 @@ int add(int a, int b){
 }
 
 
-void muscle_activator(int imu[9],  bool msl_act){
-	int accel_val_x = (imu[0] < 0) ? (imu[0] * -1) : imu[0];
-	int accel_val_x = (imu[0] < 0) ? (imu[0] * -1) : imu[0];
-	int accel_val_x = (imu[0] < 0) ? (imu[0] * -1) : imu[0];
-	
+bool muscle_activator(int imu[9], int test_value){
+	float accel_val = sqrtf((imu[0] * imu[0] + imu[1] * imu[1] + imu[2] * imu[2]) / 3.0);
+	float gyr_val = sqrtf((imu[3] * imu[3] + imu[4] * imu[4] + imu[5] * imu[5]) / 3.0);
+	float mag_val = sqrtf((imu[6] * imu[6] + imu[7] * imu[7] + imu[8] * imu[8]) / 3.0);
+
+	gyr_val = test_value;
+	if(gyr_val > 120 )
+		return 1; // muscle activated
+	return 0;
 }
 
 
