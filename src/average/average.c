@@ -1,15 +1,17 @@
 #include "average.h"
 #include <stdbool.h>
+#include <math.h>
+
 
 #define MA_FILTER_SIZE	8
 #define MA_SIGNAL_SIZE	64
+
 float average(float arr[], unsigned int size){
 	float total = 0;
 	for (unsigned int i = 0;i < size; i++){
 		total += arr[i];
 	}
 	return total / (float)size;
-
 }
 
 int add(int a, int b){
@@ -38,8 +40,25 @@ void emg_mvn_avg(float emg_values[], unsigned int size){
 }
 
 
-void calc_time_dom(void){
+float calc_time_dom(float emg_values[], unsigned int size){
+	float emg_abs, emg_int, emg_ssi, emg_var, emg_rms;
+	emg_abs = emg_int, emg_ssi = emg_var = emg_rms = 0.0;
 
+	for(unsigned int i=0; i<size; i++){
+		emg_int += emg_values[i];
+		emg_ssi += (emg_int * emg_int);
+	}
 
+	emg_abs = emg_int / size;
+	emg_var = emg_ssi / (size - 1);
+	emg_rms = sqrt(emg_ssi / size);
+
+	return emg_int;
 }
+
+
+
+
+
+
 

@@ -2,6 +2,8 @@
 
 extern "C" {
 	#include "average.h"
+	#include <stdbool.h>
+	#include <math.h>
 
 }
 
@@ -25,7 +27,15 @@ TEST_GROUP(average_test_group){
 // Create test group for emg software
 TEST_GROUP(emg_test_group)
 {
+	void setup(){
+		// initialize before each test
 
+	}
+
+	void teardown(){
+		// Deinitialize before each test
+
+	}
 
 
 };
@@ -59,7 +69,13 @@ TEST(average_test_group, add_test)
 }
 
 
+// test muscle_activator
+TEST(emg_test_group, activation_test){
+	int imu[] = {1,2,3,4,5,6,7,8,9};
+	int activated = muscle_activator(imu, 100);
+	CHECK_EQUAL(activated, 1);
 
+}
 
 
 

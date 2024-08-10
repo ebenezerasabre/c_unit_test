@@ -3,9 +3,9 @@
 
 float average(float arr[], unsigned int size);
 int add(int a, int b);
-void muscle_activator(int imu[9],  bool msl_act);
+bool muscle_activator(int imu[9],  bool msl_act);
 void emg_mvn_avg(float emg_values[], unsigned int size);
-void calc_time_dom(void);
+float calc_time_dom(float emg_values[], unsigned int size);
 
 
 #endif // AVERAGE_H
