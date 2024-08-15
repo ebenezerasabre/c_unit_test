@@ -71,10 +71,19 @@ TEST(average_test_group, add_test)
 
 // test muscle_activator
 TEST(emg_test_group, activation_test){
-	int imu[] = {1,2,3,4,5,6,7,8,9};
+	float imu[] = {1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
 	int activated = muscle_activator(imu, 100);
-	CHECK_EQUAL(activated, 1);
+	CHECK_EQUAL(activated, 0);
 
+}
+
+// test time domain function
+
+TEST(emg_test_group, time_domain_tes){
+	float emg_values[] = {1,2,3,4,5,6 };
+	float sum = calc_time_dom(emg_values, 6);
+	//DOUBLES_EQUAL(20, sum, 0.0); // emg_int, actual = 21.00
+	DOUBLES_EQUAL(91, sum, 0.2);   // emg_ssi
 }
 
 

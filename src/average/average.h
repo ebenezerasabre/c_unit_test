@@ -3,8 +3,8 @@
 
 float average(float arr[], unsigned int size);
 int add(int a, int b);
-bool muscle_activator(int imu[9],  bool msl_act);
-void emg_mvn_avg(float emg_values[], unsigned int size);
+int muscle_activator(float imu[9],  int test_value);
+float emg_mvn_avg(float emg_values[], float size);
 float calc_time_dom(float emg_values[], unsigned int size);
 
 
